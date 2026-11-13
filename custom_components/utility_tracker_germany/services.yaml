@@ -1,0 +1,9 @@
+get_contract_data:
+  fields:
+    entity_id:
+      required: false
+      example: sensor.example_plan
+      selector:
+        entity:
+          integration: utility_tracker_germany
+          multiple: true

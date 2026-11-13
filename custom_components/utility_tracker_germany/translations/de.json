@@ -1,0 +1,189 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Schritt 1/2: Vertrag",
+        "description": "Name, Art des Vertrags, Zählersensor und Laufzeit.",
+        "submit": "Weiter",
+        "data": {
+          "name": "Name",
+          "type": "Typ",
+          "source_sensor": "Quellsensor (Zählerstand)",
+          "start_date": "Vertragsbeginn",
+          "term_months": "Laufzeit (Monate)",
+          "start_reading": "Zählerstand bei Vertragsbeginn"
+        }
+      },
+      "prices_electricity": {
+        "title": "Schritt 2/2: Preise Strom",
+        "description": "Bruttopreise. Arbeitspreis pro kWh, Grundpreis pro Jahr, monatlicher Abschlag.",
+        "submit": "Fertigstellen",
+        "data": {
+          "unit_price": "Arbeitspreis pro kWh",
+          "base_price_year": "Grundpreis pro Jahr",
+          "monthly_advance": "Monatlicher Abschlag"
+        }
+      },
+      "prices_gas": {
+        "title": "Schritt 2/2: Preise Gas",
+        "description": "Bruttopreise. Arbeitspreis pro kWh, Grundpreis pro Jahr, monatlicher Abschlag.",
+        "submit": "Fertigstellen",
+        "data": {
+          "unit_price": "Arbeitspreis pro kWh",
+          "base_price_year": "Grundpreis pro Jahr",
+          "monthly_advance": "Monatlicher Abschlag",
+          "kwh_per_m3": "Umrechnung kWh pro m³ (Brennwert × Zustandszahl)"
+        },
+        "data_description": {
+          "kwh_per_m3": "Steht auf der Gasrechnung, z. B. 10,5. Zählerstände bleiben in m³, der Preis gilt pro kWh."
+        }
+      },
+      "prices_water": {
+        "title": "Schritt 2/2: Preise Wasser",
+        "description": "Bruttopreise. Der Abwasserpreis wird pro m³ zum Frischwasserpreis addiert; der Grundpreis gilt einmalig für beides.",
+        "submit": "Fertigstellen",
+        "data": {
+          "unit_price": "Frischwasserpreis pro m³",
+          "sewage_price": "Abwasserpreis pro m³",
+          "base_price_year": "Grundpreis pro Jahr",
+          "monthly_advance": "Monatlicher Abschlag"
+        }
+      }
+    },
+    "error": {
+      "name_required": "Bitte einen Namen eingeben.",
+      "invalid_date": "Ungültiges Datum.",
+      "source_not_found": "Quellsensor nicht gefunden.",
+      "negative_value": "Preise dürfen nicht negativ sein."
+    },
+    "abort": {
+      "already_configured": "Diese Konfiguration existiert bereits."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Utility Tracker Germany",
+        "menu_options": {
+          "overview": "Vertragsübersicht",
+          "add": "Vertrag hinzufügen",
+          "adjust": "Vertrag anpassen",
+          "delete": "Vertrag löschen"
+        }
+      },
+      "overview": {
+        "title": "Vertragsübersicht",
+        "description": "{summary}",
+        "submit": "Schließen",
+        "status_planned": "geplant",
+        "status_ended": "beendet",
+        "status_running": "läuft",
+        "contract_line": "**Vertrag {n} ({status}){mark}:** {start} bis {end} ({term} Monate, noch {left} Tage)",
+        "reading_line": "Zählerstand Start: {start} {unit}",
+        "reading_end": ", Ende: {end} {unit}",
+        "price_line": "Preis: {price} EUR/{unit}, Grundpreis: {base} EUR/Jahr, Abschlag: {advance} EUR/Monat",
+        "factor_line": "Umrechnung: {factor} kWh/m³"
+      },
+      "adjust": {
+        "title": "Vertrag anpassen",
+        "description": "Welchen Vertrag möchtest du anpassen?",
+        "data": {
+          "contract": "Vertrag"
+        }
+      },
+      "delete": {
+        "title": "Vertrag löschen",
+        "description": "Welchen Vertrag möchtest du löschen?",
+        "data": {
+          "contract": "Vertrag"
+        }
+      },
+      "add": {
+        "title": "Vertrag hinzufügen",
+        "description": "Beginn und Zählerstand sind vorbelegt (Ende des letzten Vertrags), aber frei änderbar.",
+        "data": {
+          "start_date": "Vertragsbeginn",
+          "term_months": "Laufzeit (Monate)",
+          "start_reading": "Zählerstand bei Vertragsbeginn",
+          "unit_price": "Preis pro Einheit (EUR)",
+          "sewage_price": "Abwasserpreis pro m3 (EUR)",
+          "base_price_year": "Grundpreis pro Jahr (EUR)",
+          "monthly_advance": "Monatlicher Abschlag (EUR)",
+          "end_reading": "Endzählerstand (optional)",
+          "kwh_per_m3": "Umrechnung kWh pro m³ (Brennwert × Zustandszahl)"
+        },
+        "data_description": {
+          "end_reading": "Der Verbrauch zählt bis zu diesem Zählerstand, danach bleibt Ist eingefroren.",
+          "kwh_per_m3": "Steht auf der Gasrechnung, z. B. 10,5. Zählerstände bleiben in m³, der Preis gilt pro kWh."
+        },
+        "submit": "Hinzufügen"
+      },
+      "adjust_form": {
+        "title": "Vertrag anpassen",
+        "description": "Vertrag {contract}",
+        "data": {
+          "start_date": "Vertragsbeginn",
+          "term_months": "Laufzeit (Monate)",
+          "start_reading": "Zählerstand bei Vertragsbeginn",
+          "unit_price": "Preis pro Einheit (EUR)",
+          "sewage_price": "Abwasserpreis pro m3 (EUR)",
+          "base_price_year": "Grundpreis pro Jahr (EUR)",
+          "monthly_advance": "Monatlicher Abschlag (EUR)",
+          "end_reading": "Endzählerstand (optional)",
+          "kwh_per_m3": "Umrechnung kWh pro m³ (Brennwert × Zustandszahl)"
+        },
+        "data_description": {
+          "end_reading": "Der Verbrauch zählt bis zu diesem Zählerstand, danach bleibt Ist eingefroren.",
+          "kwh_per_m3": "Steht auf der Gasrechnung, z. B. 10,5. Zählerstände bleiben in m³, der Preis gilt pro kWh."
+        },
+        "submit": "Speichern"
+      },
+      "delete_confirm": {
+        "title": "Vertrag löschen",
+        "description": "Vertrag {contract} von {name} wird endgültig gelöscht. Der Zähler bleibt unberührt.",
+        "data": {
+          "confirm": "Ja, endgültig löschen"
+        },
+        "submit": "Löschen"
+      },
+      "delete_confirm_last": {
+        "title": "Tracker löschen",
+        "description": "Vertrag {contract} ist der letzte Vertrag von {name}. Beim Löschen werden der ganze Tracker und seine Sensoren entfernt. Der Zähler bleibt unberührt.",
+        "data": {
+          "confirm": "Ja, den Tracker löschen"
+        },
+        "submit": "Löschen"
+      }
+    },
+    "error": {
+      "negative_value": "Preise dürfen nicht negativ sein.",
+      "invalid_date": "Ungültiges Datum.",
+      "overlap": "Der Vertrag überschneidet sich mit einem anderen Vertrag."
+    },
+    "abort": {
+      "deleted": "Der Tracker wird gelöscht.",
+      "not_deleted": "Nichts gelöscht, da nicht bestätigt."
+    }
+  },
+  "selector": {
+    "type": {
+      "options": {
+        "electricity": "Strom",
+        "gas": "Gas",
+        "water": "Wasser"
+      }
+    }
+  },
+  "services": {
+    "get_contract_data": {
+      "name": "Vertragsdaten abrufen",
+      "description": "Liefert Tarife, Verbräuche, Kosten und Prognose aller Verträge als JSON.",
+      "fields": {
+        "entity_id": {
+          "name": "Entität",
+          "description": "Optional: nur Verträge dieser Entitäten. Ohne Angabe werden alle zurückgegeben."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Step 1/2: Contract",
+        "description": "Name, contract type, meter sensor and term.",
+        "submit": "Next",
+        "data": {
+          "name": "Name",
+          "type": "Type",
+          "source_sensor": "Source sensor (meter reading)",
+          "start_date": "Contract start",
+          "term_months": "Term (months)",
+          "start_reading": "Meter reading at contract start"
+        }
+      },
+      "prices_electricity": {
+        "title": "Step 2/2: Electricity prices",
+        "description": "Gross prices. Price per kWh, base price per year, monthly advance.",
+        "submit": "Finish",
+        "data": {
+          "unit_price": "Price per kWh",
+          "base_price_year": "Base price per year",
+          "monthly_advance": "Monthly advance"
+        }
+      },
+      "prices_gas": {
+        "title": "Step 2/2: Gas prices",
+        "description": "Gross prices. Price per kWh, base price per year, monthly advance.",
+        "submit": "Finish",
+        "data": {
+          "unit_price": "Price per kWh",
+          "base_price_year": "Base price per year",
+          "monthly_advance": "Monthly advance",
+          "kwh_per_m3": "kWh per m³ (calorific value × state number)"
+        },
+        "data_description": {
+          "kwh_per_m3": "Shown on your gas bill, e.g. 10.5. Meter readings stay in m³, the price applies per kWh."
+        }
+      },
+      "prices_water": {
+        "title": "Step 2/2: Water prices",
+        "description": "Gross prices. The wastewater price per m³ is added to the fresh water price; the base price applies once for both.",
+        "submit": "Finish",
+        "data": {
+          "unit_price": "Fresh water price per m³",
+          "sewage_price": "Wastewater price per m³",
+          "base_price_year": "Base price per year",
+          "monthly_advance": "Monthly advance"
+        }
+      }
+    },
+    "error": {
+      "name_required": "Please enter a name.",
+      "invalid_date": "Invalid date.",
+      "source_not_found": "Source sensor not found.",
+      "negative_value": "Prices must not be negative."
+    },
+    "abort": {
+      "already_configured": "This configuration already exists."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Utility Tracker Germany",
+        "menu_options": {
+          "overview": "Contract overview",
+          "add": "Add contract",
+          "adjust": "Adjust contract",
+          "delete": "Delete contract"
+        }
+      },
+      "overview": {
+        "title": "Contract overview",
+        "description": "{summary}",
+        "submit": "Close",
+        "status_planned": "planned",
+        "status_ended": "ended",
+        "status_running": "running",
+        "contract_line": "**Contract {n} ({status}){mark}:** {start} to {end} ({term} months, {left} days left)",
+        "reading_line": "Meter reading at start: {start} {unit}",
+        "reading_end": ", at end: {end} {unit}",
+        "price_line": "Price: {price} EUR/{unit}, base price: {base} EUR/year, advance: {advance} EUR/month",
+        "factor_line": "Conversion: {factor} kWh/m³"
+      },
+      "adjust": {
+        "title": "Adjust contract",
+        "description": "Select the contract you want to edit.",
+        "data": {
+          "contract": "Contract (number: start – end)"
+        }
+      },
+      "delete": {
+        "title": "Delete contract",
+        "description": "Select the contract you want to delete.",
+        "data": {
+          "contract": "Contract (number: start – end)"
+        }
+      },
+      "add": {
+        "title": "Add contract",
+        "description": "Start date and meter reading are prefilled from the end of the previous contract. You can change them.",
+        "data": {
+          "start_date": "Contract start",
+          "term_months": "Term (months)",
+          "start_reading": "Meter reading at contract start",
+          "unit_price": "Price per kWh (electricity, gas) or per m3 (water), EUR",
+          "sewage_price": "Wastewater price per m3, EUR",
+          "base_price_year": "Base price per year, EUR",
+          "monthly_advance": "Monthly advance payment, EUR",
+          "end_reading": "Meter reading at contract end (optional)",
+          "kwh_per_m3": "Conversion factor in kWh per m3"
+        },
+        "data_description": {
+          "end_reading": "Enter this once the contract has ended. Consumption is only counted up to this reading, so Actual stops growing.",
+          "kwh_per_m3": "Printed on your gas bill (calorific value x state number), e.g. 10.5. The meter stays in m3, the price is per kWh."
+        },
+        "submit": "Add"
+      },
+      "adjust_form": {
+        "title": "Adjust contract",
+        "description": "Editing contract {contract}.",
+        "data": {
+          "start_date": "Contract start",
+          "term_months": "Term (months)",
+          "start_reading": "Meter reading at contract start",
+          "unit_price": "Price per kWh (electricity, gas) or per m3 (water), EUR",
+          "sewage_price": "Wastewater price per m3, EUR",
+          "base_price_year": "Base price per year, EUR",
+          "monthly_advance": "Monthly advance payment, EUR",
+          "end_reading": "Meter reading at contract end (optional)",
+          "kwh_per_m3": "Conversion factor in kWh per m3"
+        },
+        "data_description": {
+          "end_reading": "Enter this once the contract has ended. Consumption is only counted up to this reading, so Actual stops growing.",
+          "kwh_per_m3": "Printed on your gas bill (calorific value x state number), e.g. 10.5. The meter stays in m3, the price is per kWh."
+        },
+        "submit": "Save"
+      },
+      "delete_confirm": {
+        "title": "Delete contract",
+        "description": "Contract {contract} of {name} will be permanently deleted. The meter itself is not affected.",
+        "data": {
+          "confirm": "Yes, delete this contract"
+        },
+        "submit": "Delete"
+      },
+      "delete_confirm_last": {
+        "title": "Delete tracker",
+        "description": "Contract {contract} is the last contract of {name}. Deleting it removes the whole tracker and its sensors. The meter itself is not affected.",
+        "data": {
+          "confirm": "Yes, delete the tracker"
+        },
+        "submit": "Delete"
+      }
+    },
+    "error": {
+      "negative_value": "Prices must not be negative.",
+      "invalid_date": "Invalid date.",
+      "overlap": "The contract overlaps with another contract."
+    },
+    "abort": {
+      "deleted": "The tracker is being deleted.",
+      "not_deleted": "Nothing deleted because it was not confirmed."
+    }
+  },
+  "selector": {
+    "type": {
+      "options": {
+        "electricity": "Electricity",
+        "gas": "Gas",
+        "water": "Water"
+      }
+    }
+  },
+  "services": {
+    "get_contract_data": {
+      "name": "Get contract data",
+      "description": "Returns tariffs, consumption, costs and forecast of all contracts as JSON.",
+      "fields": {
+        "entity_id": {
+          "name": "Entity",
+          "description": "Optional: only contracts of these entities. Returns all contracts if omitted."
+        }
+      }
+    }
+  }
+}

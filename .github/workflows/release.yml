@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set version in manifest
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          python3 - <<EOF
+          import json
+          p = "custom_components/utility_tracker_germany/manifest.json"
+          m = json.load(open(p))
+          m["version"] = "${VERSION}"
+          m["documentation"] = "https://github.com/${GITHUB_REPOSITORY}"
+          m["issue_tracker"] = "https://github.com/${GITHUB_REPOSITORY}/issues"
+          json.dump(m, open(p, "w"), indent=2, ensure_ascii=False)
+          EOF
+
+      - name: Create ZIP
+        run: |
+          cd custom_components/utility_tracker_germany
+          zip -r ../../utility_tracker_germany.zip .
+
+      - name: Release title
+        run: echo "RELEASE_NAME=$(echo ${GITHUB_REF_NAME#v} | sed 's/\.0$//')" >> $GITHUB_ENV
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: utility_tracker_germany.zip
+          name: ${{ env.RELEASE_NAME }}
+          body_path: RELEASE_NOTES.md
